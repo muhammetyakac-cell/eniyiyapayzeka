@@ -4,6 +4,8 @@ import { getComparisonBySlug } from "@/lib/db/comparisons";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
+import { ComparisonTable } from "@/components/comparison/comparison-table";
+
 export const dynamic = "force-dynamic";
 
 export default async function KarsilastirmaDetailPage({
@@ -39,72 +41,51 @@ export default async function KarsilastirmaDetailPage({
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <Card>
+        <Card className="card-hover transition-all">
           <CardHeader>
             <CardTitle>
               <a
                 href={`/araclar/${comparison.toolA.slug}`}
-                className="hover:text-primary"
+                className="hover:text-primary transition-colors font-bold"
               >
                 {comparison.toolA.name}
               </a>
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-sm text-muted-foreground">
-              {comparison.toolA.descriptionTr?.slice(0, 200)}...
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {comparison.toolA.descriptionTr?.replace(/<[^>]*>/g, "").slice(0, 200)}...
             </p>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="card-hover transition-all">
           <CardHeader>
             <CardTitle>
               <a
                 href={`/araclar/${comparison.toolB.slug}`}
-                className="hover:text-primary"
+                className="hover:text-primary transition-colors font-bold"
               >
                 {comparison.toolB.name}
               </a>
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-sm text-muted-foreground">
-              {comparison.toolB.descriptionTr?.slice(0, 200)}...
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {comparison.toolB.descriptionTr?.replace(/<[^>]*>/g, "").slice(0, 200)}...
             </p>
           </CardContent>
         </Card>
       </div>
 
       {table && Object.keys(table).length > 0 && (
-        <section>
-          <h2 className="text-xl font-bold mb-4">Özellik Karşılaştırması</h2>
-          <div className="border rounded-lg overflow-hidden">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="bg-muted/50">
-                  <th className="text-left p-3 font-medium">Özellik</th>
-                  <th className="text-left p-3 font-medium">
-                    {comparison.toolA.name}
-                  </th>
-                  <th className="text-left p-3 font-medium">
-                    {comparison.toolB.name}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {Object.entries(table).map(([key, [a, b]], i) => (
-                  <tr key={i} className="border-t">
-                    <td className="p-3 font-medium capitalize">
-                      {key.replace(/([A-Z])/g, " $1").trim()}
-                    </td>
-                    <td className="p-3">{a}</td>
-                    <td className="p-3">{b}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+        <section className="mt-12">
+          <h2 className="text-2xl font-bold mb-6">Özellik Karşılaştırması</h2>
+          <ComparisonTable
+            toolAName={comparison.toolA.name}
+            toolBName={comparison.toolB.name}
+            table={table}
+          />
         </section>
       )}
     </div>

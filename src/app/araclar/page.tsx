@@ -4,6 +4,9 @@ import { getTools } from "@/lib/db/tools";
 import type { ToolCardData } from "@/types/tools";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 
+import { ToolFilters } from "@/components/tools/tool-filters";
+import { getAllCategories } from "@/lib/db/categories";
+
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
@@ -23,16 +26,22 @@ export default async function AracPage({
   const params = await searchParams;
   const page = Number(params.page) || 1;
   let result: { tools: ToolCardData[]; total: number; page: number; totalPages: number } = { tools: [], total: 0, page: 1, totalPages: 0 };
+  let categories: Array<{ id: string; slug: string; nameTr: string }> = [];
 
   try {
-    result = await getTools({
-      categorySlug: params.kategori,
-      pricingModel: params.fiyat,
-      search: params.q,
-      page,
-    });
-  } catch {
-    // Database not available yet
+    const [toolsData, categoriesData] = await Promise.all([
+      getTools({
+        categorySlug: params.kategori,
+        pricingModel: params.fiyat,
+        search: params.q,
+        page,
+      }),
+      getAllCategories(),
+    ]);
+    result = toolsData;
+    categories = categoriesData;
+  } catch (err) {
+    console.error("Database connection failed:", err);
   }
 
   return (
@@ -41,8 +50,10 @@ export default async function AracPage({
 
       <h1 className="text-3xl font-bold mt-4 mb-8">Yapay Zeka Araçları</h1>
 
-      <div className="mb-6">
-        <p className="text-muted-foreground">
+      <ToolFilters categories={categories} />
+
+      <div className="mb-6 flex items-center justify-between">
+        <p className="text-muted-foreground text-sm">
           {result.total} araç bulundu — Sayfa {result.page}/{result.totalPages}
         </p>
       </div>
@@ -52,19 +63,28 @@ export default async function AracPage({
       {result.totalPages > 1 && (
         <div className="flex items-center justify-center gap-2 mt-8">
           {Array.from({ length: result.totalPages }, (_, i) => i + 1).map(
-            (p) => (
-              <a
-                key={p}
-                href={`/araclar?page=${p}`}
-                className={`inline-flex h-9 w-9 items-center justify-center rounded-md text-sm border ${
-                  p === page
-                    ? "bg-primary text-primary-foreground border-primary"
-                    : "hover:bg-accent"
-                }`}
-              >
-                {p}
-              </a>
-            )
+            (p) => {
+              // Construct href with active filters
+              const urlParams = new URLSearchParams();
+              urlParams.set("page", String(p));
+              if (params.kategori) urlParams.set("kategori", params.kategori);
+              if (params.fiyat) urlParams.set("fiyat", params.fiyat);
+              if (params.q) urlParams.set("q", params.q);
+
+              return (
+                <a
+                  key={p}
+                  href={`/araclar?${urlParams.toString()}`}
+                  className={`inline-flex h-9 w-9 items-center justify-center rounded-md text-sm border ${
+                    p === page
+                      ? "bg-primary text-primary-foreground border-primary font-medium"
+                      : "hover:bg-accent"
+                  }`}
+                >
+                  {p}
+                </a>
+              );
+            }
           )}
         </div>
       )}

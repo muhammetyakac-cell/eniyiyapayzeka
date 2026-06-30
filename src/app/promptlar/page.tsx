@@ -4,6 +4,8 @@ import { getPrompts } from "@/lib/db/prompts";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
+import { PromptCard } from "@/components/prompts/prompt-card";
+
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
@@ -35,32 +37,9 @@ export default async function PromptlarPage({
       {prompts.length === 0 ? (
         <p className="text-muted-foreground">Henüz prompt bulunmuyor.</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {prompts.map((prompt) => (
-            <Card key={prompt.id}>
-              <CardHeader>
-                <CardTitle className="text-base">{prompt.title}</CardTitle>
-                {prompt.tool && (
-                  <Link
-                    href={`/araclar/${prompt.tool.slug}`}
-                    className="text-xs text-primary hover:underline"
-                  >
-                    {prompt.tool.name}
-                  </Link>
-                )}
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground line-clamp-3">
-                  {prompt.promptText}
-                </p>
-                <Link
-                  href={`/promptlar/${prompt.id}`}
-                  className="mt-3 inline-block text-sm text-primary hover:underline"
-                >
-                  Promptu Görüntüle →
-                </Link>
-              </CardContent>
-            </Card>
+            <PromptCard key={prompt.id} prompt={prompt} />
           ))}
         </div>
       )}

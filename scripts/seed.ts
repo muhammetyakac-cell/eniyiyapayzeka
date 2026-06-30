@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { enrichTool } from "../src/lib/ai-enrich";
 import { toolSlugify, categorySlugify } from "../src/lib/utils/slugify";
-import type { RawToolData } from "../src/types/tools";
+import type { EnrichedData, RawToolData } from "../src/types/tools";
 
 const prisma = new PrismaClient();
 
@@ -86,49 +86,63 @@ async function main() {
       continue;
     }
 
-    console.log(`  Enriching: ${rawTool.name}...`);
+    console.log(`  Processing: ${rawTool.name}...`);
 
+    let enriched: EnrichedData | null = null;
     try {
-      const enriched = await enrichTool(rawTool);
-      const pricingEnum = enriched.pricingModel.toLowerCase().includes("ücretsiz") ? "FREE"
-        : enriched.pricingModel.toLowerCase().includes("freemium") ? "FREEMIUM"
-        : enriched.pricingModel.toLowerCase().includes("açık") ? "OPEN_SOURCE"
-        : "FREE";
+      enriched = await enrichTool(rawTool);
+    } catch (err) {
+      console.log(`  Gemini unavailable, using fallback for: ${rawTool.name}`);
+    }
 
-      const tool = await prisma.aiTool.create({
-        data: {
-          slug,
-          name: rawTool.name,
-          descriptionTr: enriched.descriptionTr,
-          websiteUrl: rawTool.websiteUrl || null,
-          githubUrl: rawTool.githubUrl || null,
-          starsCount: rawTool.starsCount || 0,
-          source: "MANUAL",
-          featured: false,
-          metaTitle: enriched.metaTitle || null,
-          metaDescription: enriched.metaDescription || null,
-          useCases: enriched.useCases || [],
-          pricingModel: pricingEnum as never,
-          hardwareReq: enriched.hardwareReq || null,
-          bestFor: enriched.bestFor || null,
-        },
-      });
+    const defaultEnriched = (desc: string): EnrichedData => ({
+      descriptionTr: `<p>${desc}</p>`,
+      metaTitle: `${rawTool.name} Nedir? Detaylı İnceleme ve Özellikler | En İyi Yapay Zeka Araçları`,
+      metaDescription: `${rawTool.name} hakkında detaylı bilgi. ${rawTool.name} özellikleri, kullanım alanları ve fiyatlandırma bilgileri.`,
+      useCases: [],
+      pricingModel: enriched?.pricingModel || "Bilgi mevcut değil",
+      hardwareReq: enriched?.hardwareReq || "Bilgi mevcut değil",
+      bestFor: enriched?.bestFor || `${rawTool.name} kullanıcıları`,
+    });
 
-      if (rawTool.categorySlugs && rawTool.categorySlugs.length > 0) {
-        for (const catSlug of rawTool.categorySlugs) {
-          const category = await prisma.category.findUnique({ where: { slug: catSlug } });
-          if (category) {
-            await prisma.toolCategory.create({
-              data: { toolId: tool.id, categoryId: category.id },
-            }).catch(() => {});
-          }
+    const e = enriched || defaultEnriched(rawTool.description || "");
+
+    const pricingEnum = e.pricingModel.toLowerCase().includes("ücretsiz") ? "FREE"
+      : e.pricingModel.toLowerCase().includes("freemium") ? "FREEMIUM"
+      : e.pricingModel.toLowerCase().includes("açık") ? "OPEN_SOURCE"
+      : "FREE";
+
+    const tool = await prisma.aiTool.create({
+      data: {
+        slug,
+        name: rawTool.name,
+        descriptionTr: e.descriptionTr,
+        websiteUrl: rawTool.websiteUrl || null,
+        githubUrl: rawTool.githubUrl || null,
+        starsCount: rawTool.starsCount || 0,
+        source: "MANUAL",
+        featured: false,
+        metaTitle: e.metaTitle || null,
+        metaDescription: e.metaDescription || null,
+        useCases: e.useCases || [],
+        pricingModel: pricingEnum as never,
+        hardwareReq: e.hardwareReq || null,
+        bestFor: e.bestFor || null,
+      },
+    });
+
+    if (rawTool.categorySlugs && rawTool.categorySlugs.length > 0) {
+      for (const catSlug of rawTool.categorySlugs) {
+        const category = await prisma.category.findUnique({ where: { slug: catSlug } });
+        if (category) {
+          await prisma.toolCategory.create({
+            data: { toolId: tool.id, categoryId: category.id },
+          }).catch(() => {});
         }
       }
-
-      console.log(`  ✓ ${rawTool.name}`);
-    } catch (err) {
-      console.error(`  ✗ ${rawTool.name}: ${err instanceof Error ? err.message : String(err)}`);
     }
+
+    console.log(`  ✓ ${rawTool.name}`);
   }
 
   // Create initial comparisons

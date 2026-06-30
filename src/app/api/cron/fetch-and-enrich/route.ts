@@ -5,12 +5,16 @@ import { fetchGitHubTrending } from "@/lib/fetchers/github";
 import { fetchHuggingFace } from "@/lib/fetchers/huggingface";
 import { enrichTool } from "@/lib/ai-enrich";
 import { toolSlugify } from "@/lib/utils/slugify";
+import { deduplicateBatch } from "@/lib/utils/deduplicate";
+import { rateLimitedBatch } from "@/lib/utils/rate-limit";
+import type { RawToolData } from "@/types/tools";
 
 function mapPricingModel(text: string): PricingModel {
-  if (text.toLowerCase().includes("ücretsiz")) return "FREE";
-  if (text.toLowerCase().includes("freemium")) return "FREEMIUM";
-  if (text.toLowerCase().includes("ücretli")) return "PAID";
-  if (text.toLowerCase().includes("açık")) return "OPEN_SOURCE";
+  const lower = text.toLowerCase();
+  if (lower.includes("açık") || lower.includes("open")) return "OPEN_SOURCE";
+  if (lower.includes("freemium")) return "FREEMIUM";
+  if (lower.includes("ücretli") || lower.includes("paid")) return "PAID";
+  if (lower.includes("ücretsiz") || lower.includes("free")) return "FREE";
   return "FREE";
 }
 
@@ -18,31 +22,62 @@ export const runtime = "nodejs";
 export const maxDuration = 300;
 
 export async function GET() {
-  const results = { fetched: 0, enriched: 0, failed: 0, errors: [] as string[] };
+  const results = { fetched: 0, enriched: 0, skipped: 0, failed: 0, errors: [] as string[] };
 
   try {
-    const githubTools = await fetchGitHubTrending();
-    const hfTools = await fetchHuggingFace();
+    // 1. Fetch from all sources in parallel
+    const [githubTools, hfTools] = await Promise.allSettled([
+      fetchGitHubTrending(),
+      fetchHuggingFace(),
+    ]);
 
-    const allTools = [...githubTools, ...hfTools];
+    const allRawTools: RawToolData[] = [];
 
-    for (const rawTool of allTools) {
-      try {
+    if (githubTools.status === "fulfilled") {
+      allRawTools.push(...githubTools.value);
+    } else {
+      results.errors.push(`GitHub fetch failed: ${githubTools.reason}`);
+    }
+
+    if (hfTools.status === "fulfilled") {
+      allRawTools.push(...hfTools.value);
+    } else {
+      results.errors.push(`HuggingFace fetch failed: ${hfTools.reason}`);
+    }
+
+    results.fetched = allRawTools.length;
+
+    // 2. Deduplicate against existing DB records
+    const newTools = await deduplicateBatch(allRawTools);
+    results.skipped = results.fetched - newTools.length;
+
+    // 3. Enrich & save with rate limiting
+    const { results: enrichedResults, errors: enrichErrors } = await rateLimitedBatch(
+      newTools,
+      async (rawTool) => {
         const slug = toolSlugify(rawTool.name);
-
-        const exists = await prisma.aiTool.findUnique({ where: { slug } });
-        if (exists) continue;
-
         const enriched = await enrichTool(rawTool);
+
+        // Connect to categories if specified
+        const categoryConnect = rawTool.categorySlugs?.length
+          ? {
+              create: await Promise.all(
+                rawTool.categorySlugs.map(async (catSlug) => {
+                  const cat = await prisma.category.findUnique({ where: { slug: catSlug } });
+                  return cat ? { categoryId: cat.id } : null;
+                })
+              ).then((results) => results.filter(Boolean) as { categoryId: string }[]),
+            }
+          : undefined;
 
         await prisma.aiTool.create({
           data: {
             slug,
             name: rawTool.name,
             descriptionTr: enriched.descriptionTr,
-            websiteUrl: rawTool.websiteUrl,
-            githubUrl: rawTool.githubUrl,
-            starsCount: rawTool.starsCount,
+            websiteUrl: rawTool.websiteUrl || null,
+            githubUrl: rawTool.githubUrl || null,
+            starsCount: rawTool.starsCount || null,
             source: rawTool.source,
             metaTitle: enriched.metaTitle || null,
             metaDescription: enriched.metaDescription || null,
@@ -50,23 +85,29 @@ export async function GET() {
             pricingModel: mapPricingModel(enriched.pricingModel),
             hardwareReq: enriched.hardwareReq || null,
             bestFor: enriched.bestFor || null,
+            categories: categoryConnect,
           },
         });
 
-        results.enriched++;
-      } catch (err) {
-        results.failed++;
-        const errorMsg = err instanceof Error ? err.message : String(err);
-        results.errors.push(`${rawTool.name}: ${errorMsg}`);
+        return rawTool.name;
+      },
+      { concurrency: 3, delayMs: 4000 }
+    );
 
-        await prisma.failedJob.create({
-          data: {
-            source: rawTool.source,
-            rawData: rawTool as unknown as Prisma.InputJsonValue,
-            error: errorMsg,
-          },
-        });
-      }
+    results.enriched = enrichedResults.length;
+
+    // 4. Log failures to failed_jobs table
+    for (const { item, error } of enrichErrors) {
+      results.failed++;
+      results.errors.push(`${item.name}: ${error.message}`);
+
+      await prisma.failedJob.create({
+        data: {
+          source: item.source,
+          rawData: item as unknown as Prisma.InputJsonValue,
+          error: error.message,
+        },
+      });
     }
   } catch (err) {
     return NextResponse.json(

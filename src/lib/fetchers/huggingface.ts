@@ -18,6 +18,6 @@ export async function fetchHuggingFace(): Promise<RawToolData[]> {
     githubUrl: `https://huggingface.co/${model.modelId}`,
     starsCount: model.likes as number,
     source: "HUGGINGFACE" as const,
-    categorySlugs: ["acik-kaynak-modeller"],
+    categorySlugs: ["acik-kaynak-yapay-zeka-araclari"],
   }));
 }

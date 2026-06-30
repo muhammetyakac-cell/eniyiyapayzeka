@@ -27,6 +27,6 @@ export async function fetchGitHubTrending(): Promise<RawToolData[]> {
     githubUrl: repo.html_url as string,
     starsCount: repo.stargazers_count as number,
     source: "GITHUB" as const,
-    categorySlugs: ["kodlama"],
+    categorySlugs: ["kodlama-yapay-zeka-araclari"],
   }));
 }
