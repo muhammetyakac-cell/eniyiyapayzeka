@@ -63,6 +63,7 @@ model AiTool {
   prompts         Prompt[]
   comparisonsA    Comparison[] @relation("ToolA")
   comparisonsB    Comparison[] @relation("ToolB")
+  blogPosts       BlogPostTool[]
 
   @@index([slug])
   @@index([featured])
@@ -174,4 +175,34 @@ model VerificationToken {
 
   @@unique([identifier, token])
   @@map("verification_tokens")
+}
+
+model BlogPost {
+  id              String         @id @default(cuid())
+  slug            String         @unique
+  title           String
+  excerpt         String         @map("excerpt")
+  contentTr       String         @map("content_tr")
+  metaTitle       String?        @map("meta_title")
+  metaDescription String?        @map("meta_description")
+  featured        Boolean        @default(false)
+  readTime        Int            @default(5) @map("read_time")
+  author          String         @default("eniyiyapayzeka Editörü")
+  createdAt       DateTime       @default(now()) @map("created_at")
+  updatedAt       DateTime       @updatedAt @map("updated_at")
+  tools           BlogPostTool[]
+
+  @@index([slug])
+  @@index([featured])
+  @@map("blog_posts")
+}
+
+model BlogPostTool {
+  blogPostId String   @map("blog_post_id")
+  toolId     String   @map("tool_id")
+  blogPost   BlogPost @relation(fields: [blogPostId], references: [id], onDelete: Cascade)
+  tool       AiTool   @relation(fields: [toolId], references: [id], onDelete: Cascade)
+
+  @@id([blogPostId, toolId])
+  @@map("blog_post_tools")
 }

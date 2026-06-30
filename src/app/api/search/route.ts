@@ -5,10 +5,10 @@ export async function GET(req: NextRequest) {
   const q = req.nextUrl.searchParams.get("q") || "";
 
   if (q.length < 2) {
-    return NextResponse.json({ tools: [], prompts: [] });
+    return NextResponse.json({ tools: [], prompts: [], blogPosts: [] });
   }
 
-  const [tools, prompts] = await Promise.all([
+  const [tools, prompts, blogPosts] = await Promise.all([
     prisma.aiTool.findMany({
       where: {
         OR: [
@@ -29,7 +29,17 @@ export async function GET(req: NextRequest) {
       select: { id: true, title: true, tool: { select: { name: true } } },
       take: 5,
     }),
+    prisma.blogPost.findMany({
+      where: {
+        OR: [
+          { title: { contains: q, mode: "insensitive" } },
+          { excerpt: { contains: q, mode: "insensitive" } },
+        ],
+      },
+      select: { slug: true, title: true },
+      take: 5,
+    }),
   ]);
 
-  return NextResponse.json({ tools, prompts });
+  return NextResponse.json({ tools, prompts, blogPosts });
 }

@@ -16,6 +16,7 @@ import {
 interface SearchResult {
   tools: Array<{ id: string; name: string; slug: string; descriptionTr: string | null }>;
   prompts: Array<{ id: string; title: string; promptText: string }>;
+  blogPosts: Array<{ slug: string; title: string }>;
 }
 
 export function SearchCommand() {
@@ -23,7 +24,7 @@ export function SearchCommand() {
   const [open, setOpen] = React.useState(false);
   const [query, setQuery] = React.useState("");
   const debouncedQuery = useDebounce(query, 300);
-  const [results, setResults] = React.useState<SearchResult>({ tools: [], prompts: [] });
+  const [results, setResults] = React.useState<SearchResult>({ tools: [], prompts: [], blogPosts: [] });
   const [loading, setLoading] = React.useState(false);
 
   // Toggle Command Dialog on keyboard shortcuts
@@ -41,7 +42,7 @@ export function SearchCommand() {
   // Fetch results when debounced query changes
   React.useEffect(() => {
     if (!debouncedQuery) {
-      setResults({ tools: [], prompts: [] });
+      setResults({ tools: [], prompts: [], blogPosts: [] });
       return;
     }
 
@@ -111,7 +112,7 @@ export function SearchCommand() {
             </div>
           )}
 
-          {!loading && query && results.tools.length === 0 && results.prompts.length === 0 && (
+          {!loading && query && results.tools.length === 0 && results.prompts.length === 0 && (!results.blogPosts || results.blogPosts.length === 0) && (
             <CommandEmpty>Sonuç bulunamadı.</CommandEmpty>
           )}
 
@@ -157,6 +158,26 @@ export function SearchCommand() {
                     <span className="text-[11px] text-muted-foreground line-clamp-1">
                       {prompt.promptText}
                     </span>
+                  </div>
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          )}
+
+          {!loading && results.blogPosts && results.blogPosts.length > 0 && (
+            <CommandGroup heading="Blog Yazıları & İncelemeler">
+              {results.blogPosts.map((post) => (
+                <CommandItem
+                  key={post.slug}
+                  value={post.title}
+                  onSelect={() => {
+                    runCommand(() => router.push(`/blog/${post.slug}`));
+                  }}
+                  className="hover:bg-accent rounded-lg cursor-pointer transition-colors"
+                >
+                  <span className="mr-2">📚</span>
+                  <div className="flex flex-col">
+                    <span className="font-medium">{post.title}</span>
                   </div>
                 </CommandItem>
               ))}

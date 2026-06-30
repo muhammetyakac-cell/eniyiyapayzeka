@@ -7,11 +7,12 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
   { url: "https://eniyiyapayzeka.com/kategoriler", priority: 0.8, changeFrequency: "weekly" },
   { url: "https://eniyiyapayzeka.com/promptlar", priority: 0.7, changeFrequency: "weekly" },
   { url: "https://eniyiyapayzeka.com/karsilastirma", priority: 0.7, changeFrequency: "weekly" },
+  { url: "https://eniyiyapayzeka.com/blog", priority: 0.8, changeFrequency: "daily" },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
-    const [tools, categories, comparisons] = await Promise.all([
+    const [tools, categories, comparisons, blogPosts] = await Promise.all([
       prisma.aiTool.findMany({
         select: { slug: true, updatedAt: true },
       }),
@@ -19,6 +20,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         select: { slug: true },
       }),
       prisma.comparison.findMany({
+        select: { slug: true, updatedAt: true },
+      }),
+      prisma.blogPost.findMany({
         select: { slug: true, updatedAt: true },
       }),
     ]);
@@ -40,6 +44,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.8,
         changeFrequency: "monthly" as const,
         lastModified: c.updatedAt,
+      })),
+      ...blogPosts.map((bp) => ({
+        url: `https://eniyiyapayzeka.com/blog/${bp.slug}`,
+        priority: 0.8,
+        changeFrequency: "weekly" as const,
+        lastModified: bp.updatedAt,
       })),
     ];
 

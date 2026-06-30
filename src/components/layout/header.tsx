@@ -9,6 +9,7 @@ const NAV_ITEMS = [
   { href: "/kategoriler", label: "Kategoriler", icon: "📂" },
   { href: "/promptlar", label: "Promptlar", icon: "💬" },
   { href: "/karsilastirma", label: "Karşılaştırma", icon: "⚖️" },
+  { href: "/blog", label: "Blog", icon: "📚" },
 ];
 
 export function Header() {
