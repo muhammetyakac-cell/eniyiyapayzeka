@@ -14,10 +14,10 @@ async function main() {
     { name: "Kodlama", slug: categorySlugify("kodlama"), description: "Yazılım geliştirme, kod tamamlama ve hata ayıklama için yapay zeka araçları." },
     { name: "Müzik", slug: categorySlugify("muzik"), description: "Müzik besteleme, ses üretimi ve düzenleme için yapay zeka araçları." },
     { name: "Video", slug: categorySlugify("video"), description: "Video üretimi, düzenleme ve animasyon için yapay zeka araçları." },
-    { name: "Metin Yazarlığı", slug: categorySlugify("metin-yazarligi"), description: "İçerik üretimi, blog yazma ve pazarlama metinleri için yapay zeka." },
+    { name: "Metin Yazarlığı", slug: categorySlugify("metin-yazarligi"), description: "İçerik üretimi, blog yazma ve pazarlama metinleri için yapay zeka araçları." },
     { name: "Ses", slug: categorySlugify("ses"), description: "Ses sentezleme, klonlama ve düzenleme için yapay zeka araçları." },
-    { name: "Açık Kaynak", slug: categorySlugify("acik-kaynak"), description: "Yerel bilgisayarında çalıştırabileceğin açık kaynak yapay zeka araçları." },
-    { name: "Üretkenlik", slug: categorySlugify("uretim"), description: "İş akışı otomasyonu ve üretkenlik artırıcı yapay zeka araçları." },
+    { name: "Açık Kaynak", slug: categorySlugify("acik-kaynak"), description: "Yerel bilgisayarda çalıştırılabilecek açık kaynak yapay zeka araçları." },
+    { name: "Üretkenlik", slug: categorySlugify("uretkenlik"), description: "İş akışı otomasyonu ve üretkenlik artırıcı yapay zeka araçları." },
     { name: "Sunum", slug: categorySlugify("sunum"), description: "Sunum ve görsel içerik hazırlama için yapay zeka araçları." },
   ];
 
@@ -40,7 +40,7 @@ async function main() {
     { name: "GitHub Copilot", websiteUrl: "https://github.com/features/copilot", description: "GitHub'ın yapay zeka destekli kod tamamlama aracı. VS Code, JetBrains ve diğer IDE'lerle uyumlu.", starsCount: 0, source: "MANUAL", categorySlugs: ["kodlama"] },
     { name: "Cursor", websiteUrl: "https://cursor.com", description: "Yapay zeka entegre kod editörü. VS Code tabanlı olup Claude ve GPT modelleri ile kod yazmanı sağlar.", starsCount: 30000, githubUrl: "https://github.com/getcursor/cursor", source: "MANUAL", categorySlugs: ["kodlama"] },
     { name: "Windsurf", websiteUrl: "https://windsurf.com", description: "Yapay zeka destekli IDE. Codeium tarafından geliştirilen akıllı kod editörü.", starsCount: 15000, githubUrl: "https://github.com/codeium/windsurf", source: "MANUAL", categorySlugs: ["kodlama"] },
-    { name: "Perplexity AI", websiteUrl: "https://perplexity.ai", description: "Yapay zeka destekli arama motoru ve araştırma asistanı. Kaynak göstererek cevap verir.", starsCount: 0, source: "MANUAL", categorySlugs: ["sohbet", "uretim"] },
+    { name: "Perplexity AI", websiteUrl: "https://perplexity.ai", description: "Yapay zeka destekli arama motoru ve araştırma asistanı. Kaynak göstererek cevap verir.", starsCount: 0, source: "MANUAL", categorySlugs: ["sohbet", "uretkenlik"] },
     { name: "DeepSeek", websiteUrl: "https://deepseek.com", description: "Çin merkezli yapay zeka şirketinin geliştirdiği güçlü dil modeli. R1 modeli ile matematik ve kodlamada başarılı.", starsCount: 50000, githubUrl: "https://github.com/deepseek-ai", source: "MANUAL", categorySlugs: ["sohbet", "kodlama", "acik-kaynak"] },
     { name: "Llama 4", websiteUrl: "https://ai.meta.com/llama", description: "Meta'nın açık kaynak dil modeli. Yerel bilgisayarında çalıştırabilir ve özelleştirebilirsin.", starsCount: 35000, githubUrl: "https://github.com/meta-llama", source: "MANUAL", categorySlugs: ["sohbet", "acik-kaynak"] },
     { name: "Mistral AI", websiteUrl: "https://mistral.ai", description: "Fransız yapay zeka şirketinin geliştirdiği yüksek performanslı dil modelleri. Açık kaynak ve ticari seçenekler sunar.", starsCount: 12000, githubUrl: "https://github.com/mistralai", source: "MANUAL", categorySlugs: ["sohbet", "acik-kaynak"] },
@@ -54,10 +54,10 @@ async function main() {
     { name: "ElevenLabs", websiteUrl: "https://elevenlabs.io", description: "Gerçekçi yapay zeka ses sentezleme aracı. Ses klonlama ve çok dilli metin okuma desteği sunar.", starsCount: 0, source: "MANUAL", categorySlugs: ["ses"] },
     { name: "HeyGen", websiteUrl: "https://heygen.com", description: "Yapay zeka video avatarları oluşturma platformu. Metni gerçekçi konuşan avatar videolarına dönüştürür.", starsCount: 0, source: "MANUAL", categorySlugs: ["video"] },
     { name: "Synthesia", websiteUrl: "https://synthesia.io", description: "Kurumsal yapay zeka video üretim platformu. 140+ dilde yapay zeka avatarları ile video oluşturur.", starsCount: 0, source: "MANUAL", categorySlugs: ["video"] },
-    { name: "Notion AI", websiteUrl: "https://notion.so/product/ai", description: "Notion'un yapay zeka asistanı. Not alma, özetleme, beyin fırtınası ve yazma işlemlerine yardımcı olur.", starsCount: 0, source: "MANUAL", categorySlugs: ["uretim", "metin-yazarligi"] },
-    { name: "Jasper AI", websiteUrl: "https://jasper.ai", description: "Pazarlama odaklı yapay zeka içerik üretim platformu. Blog, sosyal medya ve reklam metinleri yazar.", starsCount: 0, source: "MANUAL", categorySlugs: ["metin-yazarligi", "uretim"] },
+    { name: "Notion AI", websiteUrl: "https://notion.so/product/ai", description: "Notion'un yapay zeka asistanı. Not alma, özetleme, beyin fırtınası ve yazma işlemlerine yardımcı olur.", starsCount: 0, source: "MANUAL", categorySlugs: ["uretkenlik", "metin-yazarligi"] },
+    { name: "Jasper AI", websiteUrl: "https://jasper.ai", description: "Pazarlama odaklı yapay zeka içerik üretim platformu. Blog, sosyal medya ve reklam metinleri yazar.", starsCount: 0, source: "MANUAL", categorySlugs: ["metin-yazarligi", "uretkenlik"] },
     { name: "Copy.ai", websiteUrl: "https://copy.ai", description: "Pazarlama ve satış metinleri üreten yapay zeka asistanı. E-posta, landing page ve sosyal medya içerikleri.", starsCount: 0, source: "MANUAL", categorySlugs: ["metin-yazarligi"] },
-    { name: "Writesonic", websiteUrl: "https://writesonic.com", description: "SEO odaklı yapay zeka içerik üretim platformu. Blog, reklam ve ürün açıklamaları yazar.", starsCount: 0, source: "MANUAL", categorySlugs: ["metin-yazarligi", "uretim"] },
+    { name: "Writesonic", websiteUrl: "https://writesonic.com", description: "SEO odaklı yapay zeka içerik üretim platformu. Blog, reklam ve ürün açıklamaları yazar.", starsCount: 0, source: "MANUAL", categorySlugs: ["metin-yazarligi", "uretkenlik"] },
     { name: "Rytr", websiteUrl: "https://rytr.me", description: "Uygun fiyatlı yapay zeka yazma asistanı. 40+ kullanım senaryosu ile içerik üretir.", starsCount: 0, source: "MANUAL", categorySlugs: ["metin-yazarligi"] },
     { name: "Beautiful.ai", websiteUrl: "https://beautiful.ai", description: "Yapay zeka destekli sunum hazırlama aracı. Akıllı şablonlar ile profesyonel sunumlar oluşturur.", starsCount: 0, source: "MANUAL", categorySlugs: ["sunum"] },
     { name: "Gamma", websiteUrl: "https://gamma.app", description: "Yapay zeka ile sunum, belge ve web sayfası oluşturma aracı. Tek prompt ile tüm içeriği oluşturur.", starsCount: 0, source: "MANUAL", categorySlugs: ["sunum"] },
@@ -71,10 +71,10 @@ async function main() {
     { name: "Continue", websiteUrl: "https://continue.dev", description: "VS Code ve JetBrains için açık kaynak yapay zeka kodlama asistanı. Kendi modelini kullanabilirsin.", starsCount: 15000, githubUrl: "https://github.com/continuedev/continue", source: "MANUAL", categorySlugs: ["kodlama", "acik-kaynak"] },
     { name: "Aider", websiteUrl: "https://aider.chat", description: "Terminal tabanlı yapay zeka kodlama asistanı. Git entegrasyonu ile otomatik commit ve kod düzenleme.", starsCount: 20000, githubUrl: "https://github.com/Aider-AI/aider", source: "MANUAL", categorySlugs: ["kodlama", "acik-kaynak"] },
     { name: "OpenHands", websiteUrl: "https://openhands.app", description: "Yapay zeka yazılım geliştirme ajanı. Kod yazma, terminal komutları ve web arama yapabilir.", starsCount: 35000, githubUrl: "https://github.com/All-Hands-AI/OpenHands", source: "MANUAL", categorySlugs: ["kodlama", "acik-kaynak"] },
-    { name: "AutoGPT", websiteUrl: "https://agpt.co", description: "Otonom yapay zeka ajanı platformu. Karmaşık görevleri alt görevlere bölüp otonom olarak tamamlar.", starsCount: 160000, githubUrl: "https://github.com/Significant-Gravitas/AutoGPT", source: "MANUAL", categorySlugs: ["uretim", "acik-kaynak"] },
+    { name: "AutoGPT", websiteUrl: "https://agpt.co", description: "Otonom yapay zeka ajanı platformu. Karmaşık görevleri alt görevlere bölüp otonom olarak tamamlar.", starsCount: 160000, githubUrl: "https://github.com/Significant-Gravitas/AutoGPT", source: "MANUAL", categorySlugs: ["uretkenlik", "acik-kaynak"] },
     { name: "LangChain", websiteUrl: "https://langchain.com", description: "Yapay zeka uygulamaları geliştirme framework'ü. LLM'leri zincirleme ve araçlarla entegre etme.", starsCount: 85000, githubUrl: "https://github.com/langchain-ai/langchain", source: "MANUAL", categorySlugs: ["kodlama", "acik-kaynak"] },
     { name: "LlamaIndex", websiteUrl: "https://llamaindex.ai", description: "Özel verilerle yapay zeka uygulamaları geliştirme framework'ü. RAG (Retrieval Augmented Generation) için idealdir.", starsCount: 30000, githubUrl: "https://github.com/run-llama/llama_index", source: "MANUAL", categorySlugs: ["kodlama", "acik-kaynak"] },
-    { name: "CrewAI", websiteUrl: "https://crewai.com", description: "Çoklu yapay zeka ajanları orkestrasyon framework'ü. Birden çok AI ajanını birlikte çalıştırmak için.", starsCount: 20000, githubUrl: "https://github.com/crewAIInc/crewAI", source: "MANUAL", categorySlugs: ["uretim", "acik-kaynak"] },
+    { name: "CrewAI", websiteUrl: "https://crewai.com", description: "Çoklu yapay zeka ajanları orkestrasyon framework'ü. Birden çok AI ajanını birlikte çalıştırmak için.", starsCount: 20000, githubUrl: "https://github.com/crewAIInc/crewAI", source: "MANUAL", categorySlugs: ["uretkenlik", "acik-kaynak"] },
   ];
 
   for (const rawTool of tools) {
@@ -133,7 +133,7 @@ async function main() {
 
     if (rawTool.categorySlugs && rawTool.categorySlugs.length > 0) {
       for (const catSlug of rawTool.categorySlugs) {
-        const category = await prisma.category.findUnique({ where: { slug: catSlug } });
+        const category = await prisma.category.findUnique({ where: { slug: categorySlugify(catSlug) } });
         if (category) {
           await prisma.toolCategory.create({
             data: { toolId: tool.id, categoryId: category.id },
