@@ -3,26 +3,25 @@ import type { EnrichedData, RawToolData } from "@/types/tools";
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || "";
 const GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent";
 
-const SYSTEM_PROMPT = `Sen bir Türk SEO içerik editörüsün.
+const SYSTEM_PROMPT = `Sen kıdemli bir Türk SEO içerik editörü ve yapay zeka uzmanısın.
 Aşağıdaki yapay zeka aracı verisini incele.
-Tamamen Türkçe olarak, SEO uyumlu ve doğal bir dil ile şu JSON'ı üret:
+Tamamen Türkçe olarak, SEO uyumlu, profesyonel, akıcı ve bilgilendirici bir dil ile şu JSON formatını üret:
 
 {
-  "descriptionTr": "3 paragraflık, hedef kitleyi yakalayan, fayda odaklı Türkçe açıklama (300-400 kelime). Başlıklar **H2** formatında olsun.",
-  "metaTitle": "60-70 karakter arası SEO başlık. Format: '{Araç Adı} Nedir, Ne İşe Yarar? | En İyi Yapay Zeka Araçları'",
-  "metaDescription": "150-160 karakter arası meta açıklaması. Anahtar kelime içermeli.",
-  "useCases": ["3-5 adet gerçek kullanım alanı, her biri 5-10 kelime"],
-  "pricingModel": "Detaylı fiyatlandırma bilgisi (ücretsiz/freemium/ücretli/açık kaynak), varsa spesifik plan fiyatları",
-  "hardwareReq": "Donanım gereksinimi. Yerel çalıştırılabiliyorsa GPU/RAM ihtiyacı, cloud-only ise belirt",
-  "bestFor": "Hangi kullanıcı tipi için ideal (örn: Yazılımcılar, İçerik üreticileri, Tasarımcılar)"
+  "descriptionTr": "En az 400-500 kelimelik, HTML formatında (<h2>, <p>, <ul>, <ol>, <li>, <strong>) yazılmış, son derece detaylı Türkçe rehber metni. Şu başlıkları içermesi zorunludur: <h2>{Araç Adı} Nedir ve Nasıl Çalışır?</h2> (detaylı tanım), <h2>Gelişmiş Kullanım Modellemesi ve İş Akışları</h2> (aracı profesyonel süreçlere entegre eden karmaşık iş akışları ve kullanım modelleri, bullet list formatında), <h2>Adım Adım Başlangıç Kılavuzu</h2> (aracı kullanmaya başlamak için sıralı adımlar, numaralandırılmış liste formatında), <h2>Avantajlar ve Sınırlar</h2> (aracın artı ve eksi yanları).",
+  "metaTitle": "60-70 karakter arası SEO başlığı. Format: '{Araç Adı} Nedir, Nasıl Kullanılır? | eniyiyapayzeka'",
+  "metaDescription": "150-160 karakter arası meta açıklaması. Anahtar kelimeler içermeli ve tıklamaya teşvik etmeli.",
+  "useCases": ["3-5 adet spesifik ve gerçekçi kullanım alanı, her biri 5-10 kelime"],
+  "pricingModel": "Detaylı fiyatlandırma modeli bilgisi (Ücretsiz/Freemium/Ücretli/Açık Kaynak) ve varsa spesifik plan detayları",
+  "hardwareReq": "Donanım gereksinimi. Yerel (local) çalıştırılabiliyorsa GPU/RAM ihtiyacı, sadece bulut tabanlıysa 'Bulut tabanlı (Cloud-only)' belirtin",
+  "bestFor": "Hangi kullanıcı tipi için ideal olduğu (örn: Yazılımcılar, Pazarlamacılar, Dijital İçerik Üreticileri)"
 }
 
 ÖNEMLİ KURALLAR:
-- JSON dışında hiçbir metin üretme.
-- Tüm çıktı Türkçe olmalı.
-- descriptionTr HTML etiketleri içerebilir (<h2>, <p>, <ul>, <li>).
-- useCases her biri spesifik ve gerçekçi olmalı.
-- Eğer veri eksikse tahmin yürütme, "Bilgi mevcut değil" yaz.`;
+- Çıktı sadece saf JSON olmalıdır. Markdown \`\`\`json blokları içinde olmasın.
+- Tüm alanlar Türkçe olmalıdır.
+- descriptionTr içindeki tüm HTML etiketleri düzgün kapatılmalı ve geçerli bir HTML yapısı sunmalıdır.
+- Eğer veri yetersizse, internetteki genel güncel bilgilere dayanarak zenginleştirilmiş içerik üret.`;
 
 function buildUserPrompt(data: RawToolData): string {
   let prompt = `Araç Adı: ${data.name}\n`;
