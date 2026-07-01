@@ -1,0 +1,9 @@
+# Vektör Veritabanları Nedir?
+
+Vektör veritabanları, verileri geleneksel satır-sütun tabloları yerine yüksek boyutlu vektör temsilleri (embedding'ler) olarak depolayan özel veritabanlarıdır. Bu vektörler, verilerin anlamsal içeriğini sayısal olarak temsil eder. Bir vektör veritabanı, bir metin parçasının embedding'ini hesapladıktan sonra, bu vektöre en yakın diğer vektörleri kosinüs benzerliği veya Öklid mesafesi gibi metrikler kullanarak bulabilir. Bu, anlamsal arama olarak bilinir ve anahtar kelime eşleştirmesinden çok daha güçlüdür.
+
+Vektör veritabanlarının en yaygın kullanım alanı RAG sistemleridir. Bir kullanıcı sorusu alındığında, soru bir embedding modeline gönderilir, elde edilen vektör vektör veritabanında aranır ve en alakalı belge parçaları bulunarak LLM'e bağlam olarak verilir. Bunun dışında, öneri sistemleri, görsel arama, anomali tespiti ve uzun süreli AI bellek sistemleri de vektör veritabanlarının yaygın kullanım alanlarındandır.
+
+2026'da kullanılan popüler vektör veritabanları şunlardır: Pinecone (yönetilen, bulut tabanlı), Qdrant (açık kaynak, kendi sunucunuzda barındırılabilir), Weaviate (hibrit arama desteği), Chroma (geliştirme ve yerel kullanım için hafif) ve pgvector (PostgreSQL için eklenti). pgvector özellikle popülerdir çünkü mevcut PostgreSQL altyapısına doğrudan entegre olur ve ayrı bir veritabanı yönetme ihtiyacını ortadan kaldırır.
+
+Bir vektör veritabanı seçerken dikkat edilmesi gereken faktörler: ölçeklenebilirlik (milyonlarca vektörü destekleme), hız (alt milisaniye sorgu süreleri), filtreleme desteği (vektör aramasını metadataya göre filtreleme) ve hibrit arama yeteneği (vektör araması ve anahtar kelime aramasını birleştirme). AI agent'lar için vektör veritabanları, uzun süreli bellek olarak kritik bir rol oynar; agent'lar önceki oturumlardan öğrendiklerini bu veritabanlarında saklar ve gerektiğinde anlamsal olarak geri çağırır.

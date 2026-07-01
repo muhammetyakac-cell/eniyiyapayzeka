@@ -1,0 +1,9 @@
+# Weights & Biases ve MLflow: MLOps ve Deney Takibi
+
+Weights & Biases (wandb), makine öğrenimi deneylerinin takibi, görselleştirilmesi ve yönetilmesi için en popüler platformlardan biridir. 2026 yılında wandb, yapay zeka ekiplerinin vazgeçilmez bir parçası haline gelmiştir. Eğitim metriklerini anlık olarak izleme, hiperparametre optimizasyonu, model versiyonlama ve ekip işbirliği gibi özellikler sunar. Wandb'nin en güçlü yanı, kullanım kolaylığıdır - sadece birkaç satır kod ekleyerek tüm deney sürecinizi kayıt altına alabilirsiniz.
+
+MLflow ise, Linux Vakfı bünyesinde geliştirilen açık kaynaklı bir MLOps platformudur. MLflow, makine öğrenimi yaşam döngüsünün dört temel aşamasını yönetir: Deney Takibi (MLflow Tracking), Model Paketleme (MLflow Models), Model Kaydı (MLflow Model Registry) ve Proje Yönetimi (MLflow Projects). 2026'da MLflow, özellikle kurumsal ortamlarda standart bir MLOps katmanı olarak kabul edilmektedir.
+
+MLflow Tracking API'si, herhangi bir makine öğrenimi kütüphanesi (PyTorch, TensorFlow, scikit-learn, XGBoost vb.) ile uyumlu çalışır. Deney parametreleri, metrikler, artefaktlar ve kaynak kod otomatik olarak kaydedilir. MLflow Model Registry ise, modellerin geliştirme, staging ve üretim ortamları arasında geçişini yöneten bir model kataloğu sunar. Bu sayede ekipler, hangi modelin üretimde olduğunu her zaman bilir ve gerektiğinde önceki sürümlere kolayca dönebilir.
+
+2026'da MLOps araçları, yapay zeka projelerinin başarısında kritik bir rol oynamaktadır. Weights & Biases hızlı prototipleme ve araştırma ekipleri için idealken, MLflow kurumsal ölçekte standartlaşma ve uyumluluk gereksinimleri için tercih edilmektedir. Her iki araç da yapay zeka geliştirme sürecini daha şeffaf, tekrarlanabilir ve yönetilebilir hale getirerek, ekiplerin daha hızlı ve güvenilir modeller üretmesine katkı sağlar.

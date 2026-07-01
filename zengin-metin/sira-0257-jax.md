@@ -1,0 +1,9 @@
+# JAX: Yüksek Performanslı Makine Öğrenimi
+
+JAX, Google Research tarafından geliştirilen ve yüksek performanslı sayısal hesaplama ile makine öğrenimi için tasarlanmış bir kütüphanedir. 2026 yılında JAX, özellikle büyük ölçekli yapay zeka modellerinin eğitiminde ve bilimsel hesaplamalarda giderek daha fazla tercih edilmektedir. JAX'in temel yeniliği, NumPy benzeri bir API sunarken otomatik türev alma (autograd), tam zamanında derleme (JIT compilation) ve donanım hızlandırma (TPU/GPU) gibi özellikleri bir araya getirmesidir.
+
+JAX'in en güçlü özelliklerinden biri, XLA (Accelerated Linear Algebra) derleyicisi aracılığıyla kodun GPU ve TPU'larda son derece verimli bir şekilde çalışmasını sağlamasıdır. vmap (vektörizasyon), pmap (paralelleştirme) ve grad (gradyan hesaplama) gibi fonksiyonel dönüştürücüler sayesinde, geliştiriciler karmaşık paralel hesaplamaları birkaç satır kod ile gerçekleştirebilir. Bu, özellikle büyük dil modelleri ve difüzyon modellerinin eğitiminde büyük performans avantajı sağlar.
+
+DeepMind, JAX'i AlphaFold ve diğer birçok çığır açan projesinde ana çerçeve olarak kullanmaktadır. Flax, Haiku, Optax ve Equinox gibi JAX tabanlı kütüphaneler, sinir ağı oluşturma, optimizasyon ve bilimsel hesaplama konularında zengin bir ekosistem sunar. 2026'da JAX, özellikle araştırma odaklı ekipler ve yüksek performans gerektiren projeler için PyTorch'a güçlü bir alternatif oluşturmaktadır.
+
+JAX'in fonksiyonel programlama yaklaşımı, saf (pure) fonksiyonlar ve yan etkisiz hesaplama prensiplerine dayanır. Bu sayede JAX kodları, geleneksel imperatif çerçevelere göre daha öngörülebilir, test edilebilir ve optimize edilebilirdir. 2026'da JAX, özellikle büyük dil modelleri, simülasyonlar ve yapay zeka araştırmaları için tercih edilen bir çerçeve olarak yükselişini sürdürmektedir.

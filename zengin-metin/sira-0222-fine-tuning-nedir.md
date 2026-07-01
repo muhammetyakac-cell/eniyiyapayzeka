@@ -1,0 +1,9 @@
+# Fine-Tuning Nedir?
+
+Fine-tuning, önceden eğitilmiş bir yapay zeka modelinin belirli bir görev veya alan için yeniden eğitilmesi işlemidir. Temel model (base model), geniş ve genel bir veri kümesi üzerinde eğitilir. Fine-tuning ile bu model, daha dar ve uzmanlaşmış bir veri kümesi kullanılarak belirli bir alana adapte edilir. Örneğin, genel bir dil modeli tıbbi terimlere, hukuk diline veya şirket içi jargon'a uyum sağlayacak şekilde fine-tune edilebilir.
+
+Fine-tuning'in en büyük avantajı, modelin davranışsal tutarlılığını artırmasıdır. Eğer bir modelin belirli bir formatta yanıt vermesini, belirli bir üslup kullanmasını veya belirli bir alandaki terminolojiyi doğru kullanmasını istiyorsanız, fine-tuning en etkili yöntemdir. Ancak fine-tuning, modele yeni bilgiler eklemek için uygun bir yöntem değildir; yeni bilgiler eklemek için RAG kullanılmalıdır.
+
+2026 itibarıyla fine-tuning dendiğinde akla gelen ilk yöntem tam fine-tuning değil, Parametre-Efektif Fine-Tuning (PEFT) yöntemleridir. LoRA (Low-Rank Adaptation), Adapters ve Prefix-Tuning gibi teknikler, modelin tüm parametrelerini güncellemek yerine sadece küçük bir alt kümeyi değiştirir. Bu sayede fine-tuning çok daha hızlı, ucuz ve kolay geri alınabilir hale gelir. Bir model, üzerinde farklı LoRA ağırlıkları değiştirilerek birçok farklı görev için kullanılabilir.
+
+Fine-tuning hangi durumlarda tercih edilmelidir? Öncelikle, modelin çıktı formatının çok katı olması gerekiyorsa (örneğin JSON çıktısı, belirli bir şablon). İkinci olarak, alana özgü bir dil ve terminoloji kullanılması gerekiyorsa. Üçüncü olarak, gecikmenin kritik olduğu durumlarda daha küçük bir fine-tune edilmiş model, büyük bir genel modelden çok daha hızlı çalışabilir. Son olarak, yüksek hacimli sorgularda fine-tune edilmiş küçük bir model, büyük modellere kıyasla çok daha düşük maliyetlidir.

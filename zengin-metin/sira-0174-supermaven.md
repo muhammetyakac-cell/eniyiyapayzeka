@@ -1,0 +1,7 @@
+# Supermaven: 1 Milyon Token Bellek ile Kod Tamamlama
+
+Yapay zeka kod tamamlama araçları arasında hız konusunda yeni bir çıta belirleyen Supermaven, Jacob Jackson tarafından geliştirildi. Jackson daha önce Tabnine'in kurucusu olarak tanınıyordu, ancak Supermaven ile sıfırdan başlayarak kod tamamlama deneyimini yeniden tasarladı. Şirketin odak noktası, kod önerilerini 50 milisaniyenin altında sunmak ve 1 milyon token'lık devasa bağlam penceresi ile geliştiricilerin tüm kod tabanını aynı anda görebilmesini sağlamak.
+
+Supermaven'ın en çarpıcı özelliği, rakiplerinden 3-5 kat daha hızlı olması. Özel olarak oluşturulmuş çıkarım motoru sayesinde, kod tamamlama önerileri neredeyse anında geliyor. 1 milyon token bağlam penceresi, geliştiricilerin manuel olarak dosya eklemesine gerek kalmadan tüm projeyi tarayarak bağlamsal olarak doğru öneriler sunuyor. VS Code, JetBrains IDEs ve Neovim desteği bulunan araç, ayrıca GPT-4o ve Claude 3.5 Sonnet gibi modellerle sohbet arayüzü de sağlıyor.
+
+Fiyatlandırması oldukça rekabetçi olan Supermaven, ücretsiz katmanda sınırsız tamamlama sunarken, Pro planı aylık 10 dolar ile 1 milyon token bağlam penceresi ve en büyük model erişimini içeriyor. OpenAI ve Perplexity kurucularının da yatırımcıları arasında olduğu şirket, 2024'te 12 milyon dolar yatırım almıştı. Supermaven'ın hız odaklı yaklaşımı, özellikle büyük kod tabanlarıyla çalışan ve her milisaniyenin önemli olduğu geliştiriciler için ideal bir çözüm sunuyor.

@@ -1,0 +1,9 @@
+# LoRA ve PEFT Nedir?
+
+LoRA (Low-Rank Adaptation), büyük dil modellerini fine-tune etmek için kullanılan parametre-efektif bir yöntemdir. Geleneksel fine-tuning'de modelin tüm parametreleri güncellenir. Örneğin 70 milyar parametreli bir modelde bu, devasa miktarda hesaplama gücü ve bellek gerektirir. LoRA ise modelin orijinal ağırlıklarını dondurur ve her katmana düşük boyutlu (low-rank) iki küçük matris ekler. Fine-tuning sırasında sadece bu küçük matrisler güncellenir.
+
+Bir örnekle açıklamak gerekirse: Modelin bir katmanında 4096x4096 boyutunda bir ağırlık matrisi olduğunu varsayalım. Bu matris 16 milyon parametre içerir. LoRA, rank=8 ile bu katmana 4096x8 ve 8x4096 boyutlarında iki matris ekler; bu da toplamda sadece 65.536 parametre eder. Fine-tuning sırasında sadece bu 65.536 parametre güncellenir. Bu sayede fine-tuning için gereken GPU belleği ve süre dramatik ölçüde azalır.
+
+2026'da PEFT (Parameter-Efficient Fine-Tuning) yöntemleri arasında en popüler olanı LoRA'dır, ancak başka yöntemler de vardır: Adapters (model katmanları arasına küçük ağ katmanları ekleme), Prefix-Tuning (girdiye öğrenilebilir ön ek token'ları ekleme) ve IA3 (katman aktivasyonlarını ölçeklendirme). Tüm bu yöntemlerin ortak avantajı, tek bir temel modelin üzerinde farklı görevler için farklı PEFT ağırlıkları kullanılabilmesidir.
+
+LoRA'nın en büyük avantajlarından biri taşınabilirliktir. Fine-tune edilmiş LoRA ağırlıkları genellikle sadece birkaç megabayt boyutundadır. Bir model paylaşmak yerine, sadece küçük LoRA ağırlıklarını paylaşmak yeterlidir. Ayrıca LoRA ağırlıkları kolayca değiştirilebilir; aynı temel model üzerinde farklı LoRA modülleri kullanarak farklı görevler (müşteri desteği, hukuk, sağlık) arasında geçiş yapmak mümkündür. Bu esneklik, LoRA'yı kurumsal AI uygulamalarında vazgeçilmez kılmıştır.

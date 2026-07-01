@@ -1,0 +1,7 @@
+# CrafterQ: Web Sitelerini 7/24 Konuşmalı Yapay Zeka Ajanına Dönüştürmek
+
+Crafter Software, 29 Haziran 2026'da CrafterQ'nun genel kullanıma sunulduğunu duyurdu. Bu platform, mevcut web sitelerini anında konuşmalı deneyimlere dönüştüren bir AI ajan platformu olarak tasarlanmış. İşletmelerin kendi ürün katalogları, dokümantasyonları, bilgi tabanları ve SSS'leri üzerinde eğitilen sistem, ziyaretçilerin doğal dilde soru sormasına ve şirketin kendi içeriğine dayalı yanıtlar almasına olanak tanıyor.
+
+CrafterQ'nun en önemli farkı, genel amaçlı AI asistanlarının aksine, yalnızca kuruluşun kendi web sitesi, dokümanları, SSS'leri ve iş içeriği üzerinde eğitilmesi. Her konuşma, kuruluşun kontrol ettiği bilgilere dayanıyor ve bu sayede daha alakalı ve marka tutarlı yanıtlar üretiliyor. Platform, özel AI bilgi erişimi, bağlamsal bellek ve akıl yürütme kullanarak müşteri niyetini yorumluyor ve bağlama duyarlı yanıtlar oluşturuyor.
+
+Dağıtım süreci son derece hızlı: Kuruluşlar bir web sitesi URL'si girerek veya doküman yükleyerek CrafterQ'yu dakikalar içinde devreye alabiliyor. Platform otomatik olarak içeriği keşfediyor, indeksliyor ve öğreniyor. Mevcut web sitesine tek bir satır JavaScript kodu eklenerek AI ajanı entegre edilebiliyor. Web sitesi içeriği değiştikçe platform kendini sürekli yeniden eğitiyor. CrafterQ, müşteri desteği ekiplerinin tekrarlayan soruları azaltmasına ve geleneksel analitiklerin kaçırdığı soruları yakalamasına yardımcı olurken, işletmelere 7/24 hizmet veren bir AI destek ajanı sunuyor.

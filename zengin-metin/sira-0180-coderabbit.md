@@ -1,0 +1,7 @@
+# CodeRabbit: Yapay Zeka ile Otomatik Kod İnceleme
+
+Yazılım geliştirme süreçlerinin en kritik ama en çok ihmal edilen adımlarından biri olan kod inceleme, CodeRabbit sayesinde tamamen otonom hale geliyor. 2026 itibarıyla 13 milyondan fazla pull request'i başarıyla inceleyen platform, GitHub ve GitLab'in en çok indirilen uygulaması konumunda. CodeRabbit, her pull request'i otomatik olarak analiz ederek, potansiyel hataları, güvenlik açıklarını ve performans sorunlarını tespit ediyor ve düzeltme önerileri sunuyor.
+
+CodeRabbit'in en önemli özelliği, yalnızca hataları bulmakla kalmayıp, aynı zamanda bağlamsal geri bildirim sağlaması. Proje mimarisini anlayan sistem, bir değişikliğin diğer bileşenlerle uyumunu değerlendiriyor ve en iyi uygulamalara uygunluk denetimi yapıyor. Ayrıca, geliştiricilerin doğal dilde sorular sorabildiği bir sohbet arayüzü sayesinde, kod inceleme süreci interaktif bir öğrenme deneyimine dönüşüyor. Takım liderleri, CodeRabbit sayesinde rutin kod incelemelerini otomatize ederek, en kritik değişikliklere odaklanabiliyor.
+
+CodeRabbit, Haziran 2026'da NVIDIA, CRV ve Datadog'un CEO'sunun katılımıyla 60 milyon dolarlık Seri B yatırımını duyurdu. Şirketin değerlemesi 550 milyon dolara ulaşırken, ARR'si altı ayda 11 milyon dolardan 40 milyon dolara yükseldi. Bu büyüme, otomatik kod inceleme pazarının ne kadar hızlı olgunlaştığını gösteriyor. CodeRabbit, yapay zeka destekli kod incelemenin bir lüks değil, modern yazılım geliştirme sürecinin olmazsa olmaz bir parçası haline geldiğini kanıtlıyor.

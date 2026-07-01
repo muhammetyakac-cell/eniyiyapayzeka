@@ -1,0 +1,7 @@
+# DigiCert AI Trust Tools: Yapay Zeka İçin Güven ve Doğrulama Çözümleri
+
+DigiCert, Mayıs 2026'da kullanıma sunduğu AI güven mimarisiyle, yapay zeka ajanlarını, modellerini ve dijital içeriği korumak için kapsamlı bir çözüm paketi sunuyor. DigiCert ONE platformuna eklenen bu yeni özellikler, kuruluşlara AI sistemlerini ve ürettikleri materyali kriptografik yöntemlerle doğrulama imkanı veriyor. İçerik Doğrulama Yöneticisi (Content Trust Manager) hemen kullanıma sunulurken, AI ajan güveni ve AI model güveni araçları önizleme aşamasında.
+
+Content Trust Manager, C2PA standardını kullanarak dijital içeriği imzalama ve doğrulama imkanı sağlıyor. Bu sistem, içeriğin nereden geldiğini, nasıl oluşturulduğunu ve değiştirilip değiştirilmediğini gösteren bir kayıt oluşturuyor. Özellikle dezenformasyon, marka taklidi ve AI kaynaklı dolandırıcılıkla mücadelede kritik bir rol üstlenen bu araç, güvenilir cihazlarda kriptografik imzalama ve zaman damgalama yoluyla yakalama noktasında da kullanılabiliyor.
+
+AI ajanları için sunulan önizleme ürünü; keşif, kimlik, yönetişim ve yaşam döngüsü yönetimini kapsıyor. Kuruluşların kriptografik kimlikler yayınlayarak ve politika tabanlı kontroller uygulayarak otonom sistemleri doğrulamasına, yetkilendirmesine ve denetlemesine olanak tanıyor. AI modelleri için ayrı bir önizleme ürünü ise güvenli paketleme, imzalama ve çalışma zamanı doğrulamasına odaklanıyor. Bu araçlar, yapay zekanın kurumsal kullanımının yaygınlaştığı 2026'da, güven ve şeffaflığın ne kadar kritik olduğunu ortaya koyuyor.

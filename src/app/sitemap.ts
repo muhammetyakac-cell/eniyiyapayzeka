@@ -12,7 +12,7 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
-    const [tools, categories, comparisons, blogPosts] = await Promise.all([
+    const [tools, categories, comparisons, blogPosts, prompts] = await Promise.all([
       prisma.aiTool.findMany({
         select: { slug: true, updatedAt: true },
       }),
@@ -24,6 +24,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }),
       prisma.blogPost.findMany({
         select: { slug: true, updatedAt: true },
+      }),
+      prisma.prompt.findMany({
+        select: { id: true, createdAt: true },
       }),
     ]);
 
@@ -50,6 +53,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.8,
         changeFrequency: "weekly" as const,
         lastModified: bp.updatedAt,
+      })),
+      ...prompts.map((p) => ({
+        url: `https://eniyiyapayzeka.com/promptlar/${p.id}`,
+        priority: 0.7,
+        changeFrequency: "monthly" as const,
+        lastModified: p.createdAt,
       })),
     ];
 

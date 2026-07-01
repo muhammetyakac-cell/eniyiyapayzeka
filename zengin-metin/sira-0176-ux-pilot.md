@@ -1,0 +1,7 @@
+# UX Pilot: Öngörülü Isı Haritaları ile Akıllı Tasarım Asistanı
+
+UI/UX tasarım dünyasında 2026'nın dikkat çeken araçlarından biri olan UX Pilot, metin komutlarından tam ekranlar oluşturmanın ötesine geçiyor. Platformun en yenilikçi özelliği, tasarımı oluşturmadan önce kullanıcıların nereye bakacağını tahmin eden öngörülü ısı haritaları (predictive heatmaps). Bu sayede tasarımcılar, bir piksel bile oluşturmadan kullanıcı davranışını test edebiliyor ve tasarımlarını buna göre optimize edebiliyor.
+
+UX Pilot, Figma eklentisi olarak çalışıyor ve mevcut tasarım sistemlerine entegre olabiliyor. Kullanıcılar bir ekranı metin olarak tanımladığında, araç birden fazla layout varyasyonu oluşturuyor ve her biri için kullanıcı dikkat dağılımını gösteren ısı haritaları sunuyor. Bu özellik, A/B testi sürecini hızlandırarak hangi tasarımın daha etkili olacağını önceden belirlemeyi mümkün kılıyor. Araç ayrıca tasarım sistemlerini otomatik olarak tanıyarak, marka tutarlılığını koruyan öneriler sunuyor.
+
+Fiyatlandırması oldukça erişilebilir olan UX Pilot, ücretsiz katmanda 7 ekran desteği sunarken, Standart plan aylık 19 dolardan başlıyor. Araç, özellikle ürün tasarımcıları ve hızlı prototipleme yapmak isteyen ekipler için ideal bir çözüm. Tasarım sürecinin başında kullanıcı davranışını öngörebilme yeteneği, gereksiz tasarım turlarını ortadan kaldırarak ekiplerin zamandan ve kaynaktan tasarruf etmesini sağlıyor. UX Pilot, AI çağında tasarım araçlarının sadece üretim değil, aynı zamanda analiz ve tahmin odaklı da olması gerektiğini gösteriyor.

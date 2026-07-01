@@ -1,0 +1,11 @@
+# Temel AI Kavramları Sözlüğü
+
+Yapay zeka dünyasında kullanılan temel kavramları anlamak, bu alana adım atan herkes için kritik öneme sahiptir. İşte 2026'da en sık karşılaşılan AI kavramlarının kısa açıklamaları:
+
+**LLM (Large Language Model):** Büyük miktarda metin verisi üzerinde eğitilmiş, metin anlama ve üretme yeteneğine sahip sinir ağı modeli. GPT, Claude, Gemini gibi modeller birer LLM'dir. **Token:** Bir modelin işlediği en küçük metin birimi. Bir kelime veya kelimenin bir parçası olabilir. Modeller token başına hesaplama yapar. **Embedding:** Metin, görüntü veya ses gibi verilerin sayısal vektör temsili. Anlamsal benzerlikleri yakalamak için kullanılır.
+
+**Attention (Dikkat):** Modelin girdideki hangi kısımlara odaklanması gerektiğini belirleyen mekanizma. Self-attention, her token'in diğer tüm token'lerle ilişkisini değerlendirir. **Context Window (Bağlam Penceresi):** Bir modelin tek seferde işleyebileceği maksimum token sayısı. 2026'da çoğu model 128K-1M token arası bağlam penceresine sahiptir. **Temperature:** Modelin çıktılarının ne kadar rastgele olacağını kontrol eden parametre. Düşük sıcaklık (0-0.3) daha belirleyici, yüksek sıcaklık (0.7-1.0) daha yaratıcı sonuçlar üretir.
+
+**RLHF (Reinforcement Learning from Human Feedback):** İnsan geri bildirimi kullanarak model davranışını hizalama yöntemi. Modelin çıktıları insanlar tarafından sıralanır ve bu sıralamaya göre model ödüllendirilir. **Synthetic Data:** Gerçek dünya verisi yerine yapay olarak üretilmiş veri. 2026'da kaliteli insan verisinin azalmasıyla sentetik veri kullanımı yaygınlaşmıştır. **Hallucination (Halüsinasyon):** Bir modelin gerçeklere dayanmayan, uydurma bilgiler üretmesi. RAG ve fine-tuning halüsinasyonları azaltmak için kullanılan başlıca yöntemlerdir.
+
+**Distillation:** Büyük bir modelin bilgisini daha küçük bir modele aktarma işlemi. Öğrenci model, öğretmen modelin çıktılarını taklit ederek öğrenir. **Quantization (Nicemleme):** Model ağırlıklarının daha düşük hassasiyette (örneğin 32-bit yerine 8-bit) saklanması. Model boyutunu küçültür ve çıkarım hızını artırır. **Few-Shot Learning:** Modele birkaç örnek göstererek istenen davranışı öğretme. Zero-shot (hiç örnek yok), one-shot (tek örnek) ve few-shot (birkaç örnek) olarak derecelendirilir. **Inference (Çıkarım):** Eğitilmiş bir modelin yeni bir girdi için tahmin üretme süreci.

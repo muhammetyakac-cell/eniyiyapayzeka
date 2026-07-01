@@ -118,7 +118,7 @@ export default async function AracDetailPage({
           <div className="md:col-span-2">
             {tool.descriptionTr && (
               <div
-                className="prose prose-neutral dark:prose-invert max-w-none"
+                className="prose prose-neutral dark:prose-invert max-w-none whitespace-pre-wrap prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-6 prose-p:leading-relaxed"
                 dangerouslySetInnerHTML={{ __html: sanitizeHtml(tool.descriptionTr) }}
               />
             )}

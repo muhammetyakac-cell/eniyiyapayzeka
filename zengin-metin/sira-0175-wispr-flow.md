@@ -1,0 +1,7 @@
+# Wispr Flow: Klavyeyi Geride Bırakan Sesli Yazma Asistanı
+
+2026'da Product Hunt'ta en çok oy alan yapay zeka araçlarından biri olan Wispr Flow, sesli yazma deneyimini kökten değiştiriyor. Geleneksel dikte araçlarının aksine, Wispr Flow yalnızca sesi metne dönüştürmekle kalmıyor, aynı zamanda dolgu sözcüklerini temizliyor, noktalama işaretlerini ekliyor ve metni bağlama göre biçimlendiriyor. Sistem düzeyinde çalışan bu araç, Mac ve Windows'ta herhangi bir uygulamanın içinde doğrudan çalışabiliyor.
+
+Wispr Flow'u özel kılan özelliklerden biri, ton eşleştirme yeteneği. Kullanıcının hangi uygulamada yazdığına bağlı olarak metnin tonunu otomatik olarak ayarlıyor: e-postalarda resmi, Slack'te samimi, dokümanlarda profesyonel. Ayrıca komut modu sayesinde "bunu sil", "paragrafı değiştir" gibi sesli komutlarla düzenleme yapılabiliyor. 100'den fazla dil desteği, fısıltı modu ve kişisel sözlük gibi özelliklerle donatılan araç, yazma hızını 45 kelime/dakikadan 220 kelime/dakikaya çıkarabiliyor.
+
+Wispr AI, 2026'da 81 milyon dolar yatırım alarak "Ses İşletim Sistemi" vizyonunu hayata geçirmek için önemli bir kaynak sağladı. Rivian, Notion, Vercel, Substack ve NVIDIA gibi şirketler tarafından kullanılan Wispr Flow, özellikle geliştiriciler ve içerik üreticileri arasında hızla yaygınlaşıyor. Superhuman CEO'su Rahul Vohra'nın "ChatGPT'den bu yana kullandığım en iyi yapay zeka ürünü" sözleriyle tanımladığı araç, klavye çağının sonuna yaklaştığımızın sinyallerini veriyor.

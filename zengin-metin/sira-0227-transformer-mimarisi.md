@@ -1,0 +1,9 @@
+# Transformer Mimarisi Nedir?
+
+Transformer mimarisi, 2017'de Google araştırmacıları tarafından "Attention Is All You Need" makalesiyle tanıtılan ve modern yapay zekanın temelini oluşturan sinir ağı mimarisidir. GPT, Claude, Gemini, Llama gibi tüm büyük dil modelleri (LLM) ve görsel modeller (Vision Transformers) bu mimariyi kullanır. Transformer'ın en önemli yeniliği, "self-attention" (öz-dikkat) mekanizmasıdır. Bu mekanizma, modelin bir cümledeki her kelimenin diğer tüm kelimelerle ilişkisini aynı anda değerlendirmesini sağlar.
+
+Self-attention mekanizması şöyle çalışır: Her kelime için üç vektör hesaplanır - Query (sorgu), Key (anahtar) ve Value (değer). Query vektörü, diğer kelimelerin Key vektörleriyle karşılaştırılarak hangi kelimelere ne kadar dikkat edileceği belirlenir. Bu dikkat ağırlıkları Value vektörleriyle çarpılarak çıktı oluşturulur. Bu sayede model, "bank" kelimesinin "nehir bankı" mı yoksa "para bankası" mı olduğunu bağlamdan anlayabilir.
+
+Transformer'ların bir diğer önemli özelliği paralel işleme yeteneğidir. Geleneksel RNN'ler kelimeleri sırayla işlemek zorundayken, Transformer'lar tüm kelimeleri aynı anda işleyebilir ve pozisyon bilgisi için "positional encoding" (konumsal kodlama) kullanır. Bu paralel işleme, Transformer'ların çok daha hızlı eğitilmesini ve çok daha büyük veri kümeleri üzerinde çalışmasını sağlar.
+
+2026 itibarıyla Transformer mimarisi, sadece metin değil; görüntü, ses, video ve kod gibi çoklu modaliteleri de işleyebilecek şekilde evrilmiştir. Multimodal Transformer'lar, aynı modelin metin, görüntü ve sesi birlikte anlamasını sağlar. Gelecekte State-Space Models (SSM) ve Mamba gibi yeni mimariler Transformer'lara alternatif olarak ortaya çıksa da, Transformer'lar hala en yaygın kullanılan ve en iyi anlaşılmış mimari olmaya devam etmektedir.

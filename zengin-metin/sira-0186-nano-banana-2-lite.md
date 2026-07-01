@@ -1,0 +1,7 @@
+# Nano Banana 2 Lite: Google'ın En Hızlı ve Ekonomik Görsel Üretim Modeli
+
+Google, 30 Haziran 2026'da Nano Banana 2 Lite (Gemini 3.1 Flash-Lite Image) modelinin genel kullanıma sunulduğunu duyurdu. Nano Banana ailesinin en hızlı ve en uygun maliyetli görsel üretim ve düzenleme modeli olan bu yeni sürüm, yalnızca 4 saniyede bir görsel oluşturabiliyor. Bu hız, reklam varyasyonlarını A/B test eden pazarlamacılardan milyonlarca kullanıcıya hizmet veren sosyal medya uygulamalarına kadar geniş bir kullanım yelpazesi için ideal.
+
+Nano Banana 2 Lite, önceki nesil Nano Banana'ya kıyasla görsel kalitede önemli bir sıçrama sunuyor. Geliştirilmiş temel yetenekler sayesinde karmaşık görevler yüksek hızda gerçekleştirilebiliyor. Model ayrıca Prompt Geliştirme (Prompt Enhancement) ve Yerelleştirme (Localization) gibi özelliklerle donatılmış durumda. Google Cloud'un Gemini Enterprise Agent Platformu üzerinden sunulan model, yüksek eşzamanlı API isteklerini güvenilir şekilde yönetmek için sağlanan iş hacmi (Provisioned Throughput) desteğiyle birlikte geliyor.
+
+Nano Banana 2 Lite, fikirleri hızla prototiplemek, tasarım konseptleri üzerinde hızlı iterasyon yapmak ve boş bir sayfadan anında mükemmel düzene ulaşmak isteyen yaratıcı profesyoneller için tasarlanmış durumda. Google'ın bu hamlesi, yapay zeka görsel üretiminde hız ve maliyet optimizasyonunun ön plana çıktığı bir dönemi işaret ediyor. Özellikle büyük ölçekli içerik üretimi yapan ekipler için Nano Banana 2 Lite, saniyeler içinde profesyonel görseller oluşturmanın en ekonomik yolu olarak öne çıkıyor.

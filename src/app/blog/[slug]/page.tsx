@@ -91,7 +91,7 @@ export default async function BlogPostDetailPage({
           {/* Main content */}
           <div className="lg:col-span-2 space-y-6">
             <div
-              className="prose prose-neutral dark:prose-invert max-w-none prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-p:leading-relaxed prose-p:mb-4 prose-ul:list-disc prose-ul:pl-5 prose-ul:mb-4"
+              className="prose prose-neutral dark:prose-invert max-w-none whitespace-pre-wrap prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-p:leading-relaxed prose-p:mb-4 prose-ul:list-disc prose-ul:pl-5 prose-ul:mb-4"
               dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.contentTr) }}
             />
           </div>

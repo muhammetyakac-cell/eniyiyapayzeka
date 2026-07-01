@@ -1,0 +1,7 @@
+# GPT-5.6 Sol: OpenAI'nın Yeni Nesil Amiral Gemisi Modeli
+
+OpenAI, 26 Haziran 2026'da GPT-5.6 serisini sınırlı önizleme olarak kullanıma sundu. Seri üç farklı modelden oluşuyor: amiral gemisi Sol, dengeli kullanım için Terra ve hızlı-uygun fiyatlı Luna. GPT-5.6 Sol, şirketin gelmiş geçmiş en güçlü modeli olarak tanımlanırken, özellikle ajanlık yetenekleri, kodlama, biyoloji ve siber güvenlik alanlarında çığır açan performans sergiliyor. Model, max adı verilen yeni bir akıl yürütme seviyesi ve ultra mod ile birlikte geliyor.
+
+Ultra mod, tek bir ajanın ötesine geçerek, karmaşık işleri hızlandırmak için alt-ajanları kullanıyor. Terra, GPT-5.5 ile rekabetçi performans sunarken 2 kat daha ucuz; Luna ise en düşük maliyetle güçlü yetenekler sağlıyor. Fiyatlandırma açısından Sol için girişte milyon token başına 3 dolar, çıkışta 12 dolar; Terra için 2,50 dolar giriş, 6 dolar çıkış; Luna için ise 1 dolar giriş, 4 dolar çıkış şeklinde belirlenmiş durumda.
+
+GPT-5.6 Sol, öncelikle API ve Codex üzerinden seçilmiş ortaklara sunuluyor. OpenAI, modeli daha sonra ChatGPT ve Codex kullanıcılarına daha geniş çapta kullanıma açmayı planlıyor. Dikkat çekici bir diğer gelişme ise Sol'un Cerebras platformunda saniyede 750 tokene kadar hızla çalışacak olması. Bu, frontier düzeyindeki bir model için benzeri görülmemiş bir hız anlamına geliyor. GPT-5.6 serisi, yapay zekanın akıl yürütme ve otonom çalışma kapasitesinde yeni bir dönemi işaret ediyor.

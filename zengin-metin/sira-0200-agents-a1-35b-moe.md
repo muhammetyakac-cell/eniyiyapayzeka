@@ -1,0 +1,9 @@
+# Agents-A1: 35B MoE ile Açık Kaynak Ajan Modellerinde Yeni Dönem
+
+Haziran 2026'da InternScience tarafından duyurulan Agents-A1, 35 milyar parametrelik Mixture of Experts (MoE) mimarisiyle açık kaynak yapay zeka dünyasında büyük yankı uyandırdı. Apache 2.0 lisansıyla Hugging Face'te yayınlanan model, trilyon parametre sınıfındaki modellerin ajanlı performansına, bu parametrelerin sadece çok küçük bir kısmıyla ulaşmayı hedefliyor. Qwen3.5-MoE mimarisi üzerine inşa edilen model, 256K bağlam penceresi ile uzun soluklu ajan görevlerinde üstün performans sergiliyor.
+
+Agents-A1'in en dikkat çekici özelliği, heterojen ajan ufukları konusundaki yeteneği. Sadece kodlama puanlarına odaklanan rakiplerinin aksine Agents-A1, arama döngüleri, bilim araçları, talimat takibi ve fonksiyon çağırma gibi çok çeşitli görevlerde başarılı sonuçlar veriyor. SciCode benchmarkında %44.3 gibi rekabetçi bir skor elde ederken, MLE-Lite testinde de %43.8 başarı oranı yakalıyor. Her ne kadar GPT-5.5 gibi sınır modellerinin gerisinde kalsa da, kendi ağırlık sınıfında lider konumda bulunuyor.
+
+Model, özellikle Çin yapay zeka ekosisteminde önemli bir konuma sahip. Alibaba ve Qwen ailesiyle aynı DNA'yı paylaşan Agents-A1, aynı hafta içinde duyurulan LongCat-2.0, Qwen-AgentWorld ve diğer modellerle birlikte açık kaynak ajan modellerinde yeni bir rekabet dönemi başlatıyor. vLLM veya SGLang ile çalıştırılabilen model, ticari kullanım için uygun Apache 2.0 lisansı sayesinde işletmeler için de cazip bir seçenek.
+
+Agents-A1, 2026'da açık kaynak ajan modellerinin nereye gittiğini gösteren önemli bir kilometre taşı. Büyük teknoloji şirketlerinin kapalı modellerine alternatif arayan geliştiriciler için güçlü bir seçenek sunan model, özellikle uzun vadeli ajan görevleri ve çoklu araç kullanımı gerektiren senaryolarda öne çıkıyor. Açık kaynak topluluğunun bu alandaki büyümesi, yapay zeka ekosisteminin demokratikleşmesi açısından büyük önem taşıyor.

@@ -1,0 +1,9 @@
+# RAG (Retrieval-Augmented Generation) Nedir?
+
+Retrieval-Augmented Generation, yani RAG, büyük dil modellerinin (LLM) bilgi tabanını genişletmek için kullanılan bir mimari desendir. Bir LLM'nin eğitim verisinde olmayan güncel veya özel bilgilere erişmesini sağlar. RAG'ın temel çalışma prensibi şöyledir: Kullanıcı bir soru sorduğunda, bu soru önce bir vektör veritabanında aranır, en alakalı belge parçaları bulunur ve bu parçalar soruyla birlikte LLM'e bağlam olarak verilir. Böylece model, kendi eğitim verisinde olmayan bilgileri kullanarak cevap üretebilir.
+
+RAG, özellikle kurumsal uygulamalarda büyük önem taşır. Bir şirketin iç dokümanları, müşteri destek kayıtları veya teknik dokümantasyonu gibi özel veriler, LLM'lerin eğitim verisine dahil edilemez. RAG sayesinde bu veriler anlık olarak sorgulanabilir ve modele bağlam olarak sunulabilir. 2026 itibarıyla RAG, kurumsal AI mimarilerinin neredeyse tamamında kullanılan standart bir yöntem haline gelmiştir.
+
+RAG'ın üç ana bileşeni vardır: chunking (belgeleri parçalara ayırma), embedding (bu parçaları vektör temsillerine dönüştürme) ve retrieval (en alakalı parçaları bulma). Gelişmiş RAG sistemlerinde reranking adı verilen bir adım daha eklenir; bu adımda bulunan parçalar ikinci bir model tarafından yeniden sıralanarak en doğru sonuçların seçilmesi sağlanır.
+
+GraphRAG ve Agentic RAG gibi RAG türevleri de popülerlik kazanmıştır. GraphRAG, Microsoft Research tarafından geliştirilmiştir ve düz metin parçaları yerine bir bilgi grafiği üzerinden sorgulama yapar. Agentic RAG ise AI agent'in kendisinin ne zaman ve nasıl bilgi alacağına karar vermesini sağlar. RAG, prompt engineering ve fine-tuning ile birlikte kullanıldığında en güçlü sonuçları verir; fine-tuning stil ve format tutarlılığı sağlarken, RAG güncel bilgilere erişim sağlar.

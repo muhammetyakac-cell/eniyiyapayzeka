@@ -1,0 +1,7 @@
+# Flowstep: Konuşarak Arayüz Tasarımı Yapmak
+
+Tasarım dünyasında yeni bir yaklaşım benimseyen Flowstep, kullanıcı arayüzlerini konuşma tabanlı bir etkileşimle oluşturmayı mümkün kılıyor. Geleneksel tasarım araçlarının aksine, Flowstep sonsuz bir tuval üzerinde sohbet aracılığıyla çalışıyor. Kullanıcılar ne istediklerini doğal dille ifade ediyor, Flowstep ise bunu düzenlenebilir vektör ekranlarına dönüştürüyor. Ürettiği çıktılar PNG değil, doğrudan Figma'ya kopyalanabilen vektör formatında.
+
+Flowstep'in en güçlü yanlarından biri, tasarım çıktılarını doğrudan koda dönüştürebilmesi. React, TypeScript ve Tailwind CSS desteği sayesinde, oluşturulan arayüzler anında geliştirilebilir kod haline geliyor. Bu özellik, tasarım ve geliştirme arasındaki geleneksel duvarı ortadan kaldırarak ürün ekiplerinin çok daha hızlı hareket etmesini sağlıyor. Araç, özellikle önce sözcüklerle düşünen ürün yöneticileri ve tasarımcılar için ideal bir başlangıç noktası sunuyor.
+
+2026'da 2,6 milyon dolarlık tohum yatırımı alan Flowstep, henüz erken aşamada olmasına rağmen büyük bir potansiyel gösteriyor. Konuşma tabanlı tasarım yaklaşımı, özellikle hızlı prototipleme ve fikir aşamasındaki projeler için zaman kazandırıcı bir çözüm sunuyor. Flowstep'in vizyonu, tasarım araçlarını karmaşık menüler ve araç çubuklarından arındırarak, yaratıcı sürecin doğal akışına bırakmak. Bu yaklaşım, yapay zeka çağında tasarım araçlarının nasıl evrileceğine dair önemli ipuçları veriyor.

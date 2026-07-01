@@ -31,6 +31,17 @@ export default async function BlogPage({
 
   const { posts, totalPages } = result;
 
+  const getVisiblePages = (current: number, total: number) => {
+    if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+    
+    if (current <= 3) return [1, 2, 3, 4, '...', total - 1, total];
+    if (current >= total - 2) return [1, 2, '...', total - 3, total - 2, total - 1, total];
+    
+    return [1, '...', current - 1, current, current + 1, '...', total];
+  };
+
+  const visiblePages = getVisiblePages(page, totalPages);
+
   return (
     <div className="relative min-h-screen overflow-hidden">
       {/* Background decorations */}
@@ -118,20 +129,29 @@ export default async function BlogPage({
 
         {/* Pagination */}
         {totalPages > 1 && (
-          <div className="flex items-center justify-center gap-2 mt-12">
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-              <a
-                key={p}
-                href={`/blog?page=${p}`}
-                className={`inline-flex h-9 w-9 items-center justify-center rounded-lg text-sm border ${
-                  p === page
-                    ? "bg-primary text-primary-foreground border-primary font-semibold"
-                    : "hover:bg-accent bg-background/50"
-                }`}
-              >
-                {p}
-              </a>
-            ))}
+          <div className="flex items-center justify-center gap-1.5 mt-12">
+            {visiblePages.map((p, index) => {
+              if (p === "...") {
+                return (
+                  <span key={`dots-${index}`} className="px-2 text-muted-foreground">
+                    ...
+                  </span>
+                );
+              }
+              return (
+                <Link
+                  key={p}
+                  href={`/blog?page=${p}`}
+                  className={`inline-flex h-9 w-9 items-center justify-center rounded-lg text-sm border transition-colors ${
+                    p === page
+                      ? "bg-primary text-primary-foreground border-primary font-semibold shadow-sm"
+                      : "hover:bg-accent hover:text-accent-foreground bg-background/50 border-input"
+                  }`}
+                >
+                  {p}
+                </Link>
+              );
+            })}
           </div>
         )}
       </div>

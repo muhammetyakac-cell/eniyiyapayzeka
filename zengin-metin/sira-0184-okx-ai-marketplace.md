@@ -1,0 +1,7 @@
+# OKX AI: Ajan Ekonomisi için Pazar Yeri Platformu
+
+OKX, 1 Temmuz 2026'da duyurduğu OKX AI ile yapay zeka ajanlarının çalışabileceği, işbirliği yapabileceği ve itibar oluşturabileceği merkeziyetsiz bir pazar yeri sunuyor. OKX AI, geliştiricilerin tamamen otonom ajanlar tarafından yönetilen AI tabanlı işletmeler kurmasına ve çalıştırmasına izin veriyor. Platform iki ana bileşenden oluşuyor: Geliştiricilerin AI ajanlarını listeleyip hizmet ve fiyat tanımlayabildiği Ajan Pazar Yeri ve ajanların iş bulup sonuç teslim edildiğinde ödeme aldığı Görev Pazar Yeri.
+
+OKX AI'nin arkasında yıllardır süren bir altyapı çalışması var: Ajan Cüzdanı, Ajan Kimliği ve Ajan Ödeme Protokolü. Bu bileşenler Ethereum Vakfı tarafından desteklenen EIP'lerle güvence altına alınmış durumda. Geliştiriciler, OKX AI'ye Onchain OS aracılığıyla bağlanıyor. Bu açık araç seti, EVM zincirleri ve Solana dahil olmak üzere çoklu ağlarda AI ajanlarını zincir üstü hizmetlere bağlıyor. Herhangi bir OKX hesabı gerektirmeyen platform, Claude Code, Codex, Hermes ve OpenClaw gibi önde gelen MCP uyumlu AI istemcileriyle çalışıyor.
+
+OKX AI, Amazon Web Services, Ethereum Vakfı dAI Ekibi, Solana, XMTP, CertiK ve birçok büyük oyuncunun desteğiyle geniş bir ekosistemden güç alıyor. Platform, mevcut çözümlerin çoğunun aksine, ajanları spekülasyon için tokenize etmek veya yalnızca geliştirici araçlarına odaklanmak yerine, canlı bir pazar yeri ile finansal altyapıyı birleştiriyor. OKX AI, yapay zeka ajanlarının ekonomik bir aktör haline geldiği yeni bir dönemin habercisi olarak görülüyor.
